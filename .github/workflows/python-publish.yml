@@ -22,4 +22,4 @@ jobs:
       run: |
         python main.py 
         docker build -t test .
-        docker run -d -p 8080:8080 --name test_container test
+        docker run -p 8080:8080 --name test_container test
