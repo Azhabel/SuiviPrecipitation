@@ -1,6 +1,9 @@
-on: [push]
+version: 2
+
+on: [push]      
 jobs :
-  build :
+  build:
+    working_directory: /app
     docker :
       - image: docker:3.10-alpine3.15
 
