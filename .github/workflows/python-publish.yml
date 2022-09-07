@@ -1,5 +1,6 @@
+on: [push]
 jobs :
-  build:
+  build :
     docker :
       - image: docker:3.10-alpine3.15
 
