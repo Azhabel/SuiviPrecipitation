@@ -5,14 +5,16 @@ from Weather import Weather
 
 
 class WeatherTest(unittest.TestCase):
+    api_key = "d62c1a3f25d595fdad7c00363298ba2f"
+
     def test_precipitation_average(self):
-        weather_forecast = Weather("Paris")
-        today = date.fromisoformat("2022-09-07")
+        weather_forecast = Weather("Paris", self.api_key)
+        today = date.fromisoformat("2022-09-01")
         next_week = today + timedelta(7)
-        self.assertEqual(weather_forecast.precipitation_average(today, next_week), 2.8625)
+        self.assertAlmostEqual(weather_forecast.precipitation_average(today, next_week), 1.5375)
 
     def test_current_weather(self):
-        weather_forecast = Weather("Alès")
+        weather_forecast = Weather("Alès", self.api_key)
         current_weather = weather_forecast.current_weather()
         temperature = float(current_weather[0])
         weather_code = int(current_weather[1])

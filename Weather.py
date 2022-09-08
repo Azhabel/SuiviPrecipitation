@@ -5,8 +5,8 @@ from GPS import GPS
 
 class Weather:
 
-    def __init__(self, city_name):
-        self.gps = GPS(city_name)
+    def __init__(self, city_name, api_key):
+        self.gps = GPS(city_name, api_key)
 
     def current_weather(self):
         url = "https://api.open-meteo.com/v1/forecast?latitude=" + str(self.gps.latitude()) + "&longitude=" \
