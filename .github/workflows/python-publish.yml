@@ -1,9 +1,8 @@
 #Basic workflows
 name : CI
 
-on: 
-  push:
-    branches:
+on: [push]
+branches:
       - main
       - frontend
       - backend
