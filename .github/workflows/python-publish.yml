@@ -1,26 +1,46 @@
+#Basic workflows
+name : CI
 
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+      - frontend
+      - backend
+env:
+  DOCKER_TAG: "dev"
   
+  
+
 jobs:
-  deploy:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
+  runs-on: ubuntu-lastest
+  steps:
+    - uses: actions/checkout@v3
+    - name: setup python environement
+      uses : actions/setup-python@v2
       with:
         python-version: '3.10'
+          
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-        pip install Flask
+      run: python -m pip install --upgrade pip
+          
+    - name : Intall Tools
+      run: pip install setuptools wheel twine
+          
+    - name: Install Flask
+      run: pip install Flask
+          
+  
+  build:
+    runs-on: ubuntu-lastest
+    
+    steps:
+      - name : Set up QEMU
+        uses: docker/setup-qemu-action@v2
         
-    - name: Build and publish
-      run: |
-        sudo apt install docker -y
-        python main.py 
-        docker build -t test .
-        docker run -p 8080:8080 --name test_container test
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Build Docker image
+        uses: docker/build-push-action@v3
+    
