@@ -2,16 +2,12 @@
 name : CI
 
 on: [push]
-branches:
-      - main
-      - frontend
-      - backend
+
 env:
   DOCKER_TAG: "dev"
   
-  
-
 jobs:
+ test:
   runs-on: ubuntu-lastest
   steps:
     - uses: actions/checkout@v3
@@ -29,8 +25,7 @@ jobs:
     - name: Install Flask
       run: pip install Flask
           
-  
-  build:
+ build:
     runs-on: ubuntu-lastest
     
     steps:
