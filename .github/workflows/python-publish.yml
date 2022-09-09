@@ -1,0 +1,43 @@
+#Basic workflows
+name : CI
+
+on: [push]
+
+  
+jobs:
+ test:
+  runs-on: ubuntu-18.04
+  steps:
+    - uses: actions/checkout@v3
+    - name: setup python environement
+      uses : actions/setup-python@v2
+      with:
+        python-version: '3.10'
+          
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip
+          
+    - name : Intall Tools
+      run: pip install setuptools wheel twine
+          
+    - name: Install Flask
+      run: pip install Flask
+          
+ build:
+    needs: test
+    runs-on: ubuntu-18.04
+    
+    steps:
+      - name : Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Build Docker image
+        uses: docker/build-push-action@v3
+        #with:
+        #  push: false
+        #  cache-from: type=registry,ref=matheves/truth_project:buildcache
+        #  cache-to: type=registry,ref=matheves/truth_project:buildcache,mode=max
+    
