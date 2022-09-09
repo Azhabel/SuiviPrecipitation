@@ -2,4 +2,4 @@ FROM python:3.10-alpine3.15
 EXPOSE 8080
 ADD . /app
 
-CMD python main.py
+CMD ["python","main.py"]
