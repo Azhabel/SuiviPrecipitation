@@ -36,8 +36,8 @@ jobs:
         
       - name: Build Docker image
         uses: docker/build-push-action@v3
-        #with:
-        #  push: false
+        with:
+          push: false
         #  cache-from: type=registry,ref=matheves/truth_project:buildcache
         #  cache-to: type=registry,ref=matheves/truth_project:buildcache,mode=max
     
