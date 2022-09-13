@@ -1,4 +1,4 @@
-FROM python:3.10-alpine3.15
+FROM python:3.10-alpine3.15 as develop-stage
 WORKDIR /
 ADD . /app
 COPY package*.json ./
