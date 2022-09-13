@@ -11,13 +11,13 @@ class WeatherTest(unittest.TestCase):
         weather_forecast = Weather("Paris", self.api_key)
         today = date.fromisoformat("2022-09-01")
         next_week = today + timedelta(7)
-        self.assertAlmostEqual(weather_forecast.precipitation_average(today, next_week), 1.5375)
+        self.assertGreaterEqual(weather_forecast.precipitation_average(today, next_week), 1.4)
 
     def test_current_weather(self):
         weather_forecast = Weather("Alès", self.api_key)
         current_weather = weather_forecast.current_weather()
-        temperature = float(current_weather[0])
-        weather_code = int(current_weather[1])
+        temperature = float(current_weather["weathercode"])
+        weather_code = int(current_weather["temperature"])
         self.assertTrue(len(current_weather), 2)
         self.assertGreater(temperature, -20.0)
         self.assertLess(temperature, 60.0)
