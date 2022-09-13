@@ -1,6 +1,5 @@
 FROM python:3.10-alpine3.15 as develop-stage
-WORKDIR /
-ADD . /app
+WORKDIR /usr/src/app
 COPY package*.json ./
 CMD ["export","FLASK_APP=main"]
 CMD ["export","FLASK_ENV=development"]
