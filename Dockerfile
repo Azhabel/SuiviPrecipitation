@@ -5,6 +5,8 @@ COPY package*.json ./
 CMD ["export","FLASK_APP=main"]
 CMD ["export","FLASK_ENV=development"]
 CMD ["export","PORT=80"]
+
+FROM develop-stage as build-stage
 CMD ["flask", "run"]
 
 FROM nginx:1.15.7-alpine as production-stage
