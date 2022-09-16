@@ -17,11 +17,19 @@ jobs:
     - name: Install dependencies
       run: python -m pip install --upgrade pip
           
-    - name : Intall Tools
+    - name : Install Tools
       run: pip install setuptools wheel twine
           
     - name: Install Flask
       run: pip install Flask
+
+    -name: Install pytest
+      run:
+        python -m pip install --upgrade pip
+        pip install pytest
+
+    -name: Run tests
+      run: pytest tests/WeatherTest.py
           
  build:
     needs: test
@@ -38,8 +46,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: false
-        #  cache-from: type=registry,ref=matheves/truth_project:buildcache
-        #  cache-to: type=registry,ref=matheves/truth_project:buildcache,mode=max
     
  release:
    needs: [test,build]
