@@ -1,6 +1,7 @@
 import unittest
 from datetime import date, timedelta
 
+from GPS import GPS
 from Weather import Weather
 
 
@@ -23,3 +24,10 @@ class WeatherTest(unittest.TestCase):
         self.assertLess(temperature, 60.0)
         self.assertGreater(weather_code, -1)
         self.assertLess(weather_code, 100)
+
+    def test_gps_value(self):
+        gps = GPS("Paris", self.api_key)
+        latitude = gps.latitude()
+        longitude = gps.longitude()
+        self.assertEqual(latitude, 48.858705)
+        self.assertEqual(longitude, 2.342865)

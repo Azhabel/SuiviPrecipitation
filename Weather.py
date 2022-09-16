@@ -1,8 +1,8 @@
-import weakref
+from datetime import date, timedelta
+
 import requests
 
 from GPS import GPS
-from datetime import date, timedelta
 
 today = date.today()
 next_week = today + timedelta(7)
@@ -35,19 +35,19 @@ class Weather:
         wlogo = ""
         if wcode == 0:
             wlogo = "sun"
-        elif wcode >= 1 and wcode <= 44:
+        elif 1 <= wcode <= 44:
             wlogo = "sunny_cloud"
-        elif wcode >= 45 and wcode <= 50:
+        elif 45 <= wcode <= 50:
             wlogo = "cloud"
-        elif wcode >= 51 and wcode <= 70:
+        elif 51 <= wcode <= 70:
             wlogo = "rainy_cloud"
-        elif wcode >= 71 and wcode <= 79:
+        elif 71 <= wcode <= 79:
             wlogo = "snowy_cloud"
-        elif wcode >= 80 and wcode <= 84:
+        elif 80 <= wcode <= 84:
             wlogo = "rainy_cloud"
-        elif wcode >= 85 and wcode <= 94:
+        elif 85 <= wcode <= 94:
             wlogo = "snowy_cloud"
-        elif wcode >= 95 and wcode <= 100:
+        elif 95 <= wcode <= 100:
             wlogo = "rainy_cloud"
         else:
             wlogo = "waiting_weather"
