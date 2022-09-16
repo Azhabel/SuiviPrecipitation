@@ -29,8 +29,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
 
+      - name: Install selenium
+        run:
+          pip install selenium
+
       - name: Run tests
-        run: pytest tests/WeatherTest.py
+        run:
+          pytest tests/WeatherTest.py
+          pytest tests/unit_test_paris_webapp_search.py
           
  build:
     needs: test
