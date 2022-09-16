@@ -52,6 +52,7 @@ jobs:
       - name: Install selenium
         run:
           sudo apt-get install -y chromium-browser
+          python -m pip install --upgrade pip
           pip install selenium
 
       - name: Run selenium test
