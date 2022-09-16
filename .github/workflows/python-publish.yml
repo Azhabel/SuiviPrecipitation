@@ -45,15 +45,14 @@ jobs:
         with:
           push: false
 
-      - name: Install selenium
-        run:
-          sudo apt-get install -y chromium-browser
-          pip install selenium pytest
-
-      - name: Run tests
-        run:
-          pytest tests/WeatherTest.py
-          pytest tests/unit_test_paris_webapp_search.py
+#      - name: Install selenium
+#        run:
+#          sudo apt-get install -y chromium-browser
+#          pip install selenium pytest
+#
+#      - name: Run tests
+#        run:
+#          pytest tests/unit_test_paris_webapp_search.py
     
  release:
    needs: [test,build]
