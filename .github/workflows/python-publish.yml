@@ -59,17 +59,17 @@ jobs:
         with:
           push: false
 
-      - name: Install selenium
-        run:
+#      - name: Install selenium
+#        run:
 #          sudo apt-get install -y chromium-browser
-          pip install selenium
-
-      - name: Run selenium test
-        env:
-          API_KEY_POSITION: ${{ secrets.API_KEY_POSITION }}
-          API_KEY_MAPTILER: ${{ secrets.API_KEY_MAPTILER }}
-        run:
-          python tests/unit_test_paris_webapp_search.py
+#          pip install selenium
+#
+#      - name: Run selenium test
+#        env:
+#          API_KEY_POSITION: ${{ secrets.API_KEY_POSITION }}
+#          API_KEY_MAPTILER: ${{ secrets.API_KEY_MAPTILER }}
+#        run:
+#          python tests/unit_test_paris_webapp_search.py
     
  release:
    needs: [test,build]
