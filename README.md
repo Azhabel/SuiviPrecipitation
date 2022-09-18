@@ -36,10 +36,12 @@ pip install Selenium
 ``
 
 then run locally the app.
+
 You can run the tests case with:
 ``
 python tests/WeatherTest.py
 ``
+
 You can run the webapp test with:
 ``
 python tests/unit_test_paris_webapp_search.py
