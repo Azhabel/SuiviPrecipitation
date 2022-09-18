@@ -59,7 +59,7 @@
                                 var searchButton = document.getElementById('searchButton');
                                 var geocoder = new maptiler.Geocoder({
                                   input: 'search',
-                                  key: 'CuCaxbUBFjOAoANxA3E7',
+                                  key: process.env.API_KEY_MAPTILER,
                                   autocompleteWaitMs: 250
                                 });
                                 geocoder.on('select', function(item) {

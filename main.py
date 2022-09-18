@@ -1,8 +1,8 @@
-from email.errors import CloseBoundaryNotFoundDefect
+import os
 from flask import Flask, render_template, request, make_response, redirect, url_for
 from Weather import Weather
 
-api_key = "d62c1a3f25d595fdad7c00363298ba2f"
+api_key = os.environ("API_KEY_POSITION")
 
 
 app = Flask(__name__)
