@@ -37,7 +37,7 @@ Install Selenium:
 pip install Selenium
 ``
 
-then run locally the app.
+then run the app locally.
 
 You can run the tests case with:
 ``
