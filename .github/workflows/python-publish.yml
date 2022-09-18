@@ -29,8 +29,8 @@ jobs:
 
       - name: Run tests
         env:
-          API_KEY_POSITION: ${{ API_KEY_POSITION }}
-          API_KEY_MAPTILER: ${{ API_KEY_MAPTILER }}
+          API_KEY_POSITION: ${{ secrets.API_KEY_POSITION }}
+          API_KEY_MAPTILER: ${{ secrets.API_KEY_MAPTILER }}
         run:
           pytest tests/WeatherTest.py
           
@@ -66,8 +66,8 @@ jobs:
 
       - name: Run selenium test
         env:
-          API_KEY_POSITION: ${{ API_KEY_POSITION }}
-          API_KEY_MAPTILER: ${{ API_KEY_MAPTILER }}
+          API_KEY_POSITION: ${{ secrets.API_KEY_POSITION }}
+          API_KEY_MAPTILER: ${{ secrets.API_KEY_MAPTILER }}
         run:
           python tests/unit_test_paris_webapp_search.py
     
