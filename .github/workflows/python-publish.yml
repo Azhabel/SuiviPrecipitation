@@ -22,10 +22,10 @@ jobs:
         run: python -m pip install --upgrade pip
           
       - name : Install Tools
-      run: pip install setuptools wheel twine
+        run: pip install setuptools wheel twine
           
-    - name: Install Flask
-      run: pip install Flask
+      - name: Install Flask
+        run: pip install Flask
           
       - name: Install pytest
         run:
