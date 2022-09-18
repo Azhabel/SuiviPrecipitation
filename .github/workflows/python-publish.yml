@@ -60,7 +60,7 @@ jobs:
           push: false
 
       - name: Install selenium
-        run:
+        run: |
           sudo apt-get install -y chromium-browser
           pip install selenium
 
