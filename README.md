@@ -28,3 +28,19 @@ Run the app:
 ``flask run``
 
 You can access the app in your browser on the 5000 port.
+
+<h3>How to run test</h3>
+Install Selenium:
+``
+pip install Selenium
+``
+
+then run locally the app.
+You can run the tests case with:
+``
+python tests/WeatherTest.py
+``
+You can run the webapp test with:
+``
+python tests/unit_test_paris_webapp_search.py
+``
